@@ -37,7 +37,10 @@ builder.Services
     });
 
 builder.Services
-    .AddOpenApi()
+    .AddOpenApi(options =>
+    {
+        options.AddSchemaTransformer(new EnumSchemaTransformer());
+    })
     .AddApplicationBootstrap()
     .AddInfrastructureBootsrap()
     .AddFluentValidationAutoValidation();
@@ -50,8 +53,6 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.MapScalarApiReference();
 }
-
-app.UseHttpsRedirection();
 
 app.UseMiddleware<ErrorHandlingMiddleware>();
 

@@ -1,4 +1,4 @@
-﻿Things to discuss
+﻿Things to discuss (BackEnd)
 1. Project Architecture
 	 - Todo.Domain            entities, enums
      - Todo.Application       DTOs, interfaces for services, services implementations

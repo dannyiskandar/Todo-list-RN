@@ -61,6 +61,39 @@ namespace Todo.Infrastructure.Bootstrap
                         Category = TodoCategory.Someday,
                         CreatedAt = DateTime.UtcNow.AddDays(-2),
                         UpdatedAt = DateTime.UtcNow.AddDays(-2)
+                    },
+                    new TodoItem
+                    {
+                        Id = Guid.Parse("44444444-4444-4444-4444-444444444444"),
+                        Title = "Call dentist",
+                        Notes = "Schedule appointment for checkup",
+                        IsCompleted = false,
+                        DueDate = DateTime.UtcNow.AddDays(3),
+                        Category = TodoCategory.NextWeek,
+                        CreatedAt = DateTime.UtcNow.AddDays(-3),
+                        UpdatedAt = DateTime.UtcNow.AddDays(-3)
+                    },
+                    new TodoItem
+                    {
+                        Id = Guid.Parse("55555555-5555-5555-5555-555555555555"),
+                        Title = "Read book",
+                        Notes = "Finish reading 'The Pragmatic Programmer'",
+                        IsCompleted = false,
+                        DueDate = DateTime.UtcNow.AddDays(14),
+                        Category = TodoCategory.Someday,
+                        CreatedAt = DateTime.UtcNow.AddDays(-5),
+                        UpdatedAt = DateTime.UtcNow.AddDays(-5)
+                    },
+                    new TodoItem
+                    {
+                        Id = Guid.Parse("66666666-6666-6666-6666-666666666666"),
+                        Title = "Exercise",
+                        Notes = "Go for a 30-minute run",
+                        IsCompleted = true,
+                        DueDate = null,
+                        Category = TodoCategory.ThisEvening,
+                        CreatedAt = DateTime.UtcNow.AddDays(-1),
+                        UpdatedAt = DateTime.UtcNow.AddDays(-1)
                     }
                 );
                 await dbContext.SaveChangesAsync();

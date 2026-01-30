@@ -17,15 +17,15 @@ namespace Todo.Domain.TodoPlan.Entities
         public bool IsCompleted { get; set; } = false;
 
         // Optional due date; can be null for Someday or Custom
-        public DateTime? DueDate { get; set; }
+        public DateTime? DueDate { get; set; } // for future use
 
         // Category for grouping tasks
         public TodoCategory Category { get; set; } = TodoCategory.Someday;
 
         // Creation timestamp
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow; // for future use
 
         // Update timestamp
-        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow; // for future use
     }
 }

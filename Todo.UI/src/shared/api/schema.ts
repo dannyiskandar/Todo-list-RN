@@ -188,7 +188,8 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
-        TodoCategory: number;
+        /** @enum {string} */
+        TodoCategory: "ThisEvening" | "TomorrowMorning" | "NextWeek" | "Someday";
         TodoItemCreateDto: {
             title?: string;
             notes?: string;

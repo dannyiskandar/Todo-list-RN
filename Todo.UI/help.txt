@@ -1,1 +1,6 @@
-1. npm run gen:api
+1. npm run gen:api - only when you  update the backend API
+2. change ip number on client.ts
+
+things to discuss
+1. optimistic update
+2. architecture

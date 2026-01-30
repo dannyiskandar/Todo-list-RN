@@ -5,7 +5,6 @@
         ThisEvening,
         TomorrowMorning,
         NextWeek,
-        Someday,
-        Custom
+        Someday
     }
 }
