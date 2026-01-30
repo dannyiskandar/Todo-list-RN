@@ -11,3 +11,6 @@
 4. Dtos Validation - FluentValidation
 5. Global Error Handling - Middleware for handling exceptions and returning standardized error responses
 6. JsonStringEnumMemberConverter - serialize enums as strings in JSON responses
+
+NOTE: we can use MediatR for CQRS pattern structure if we think the code base will grow significantly in the future. 
+for now, keeping it simple with services is fine.

@@ -1,10 +1,11 @@
 using Todo.Application.Bootstrap;
 using Todo.Application.Converters;
 using Todo.API.Middleware;
+using Todo.Application.DTOs;
 using Todo.Infrastructure.Bootstrap;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
-using Todo.Application.DTOs;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,6 +48,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
