@@ -199,6 +199,7 @@ export const AddTodoModal: React.FC<AddTodoModalProps> = ({
                     onSubmitEditing={() => notesInputRef.current?.focus()}
                     autoFocus
                     multiline
+                    maxLength={200}
                     style={styles.titleInput}
                   />
 
@@ -212,6 +213,7 @@ export const AddTodoModal: React.FC<AddTodoModalProps> = ({
                     value={notes}
                     onChangeText={setNotes}
                     multiline
+                    maxLength={1000}
                     style={styles.notesInput}
                   />
                 </View>

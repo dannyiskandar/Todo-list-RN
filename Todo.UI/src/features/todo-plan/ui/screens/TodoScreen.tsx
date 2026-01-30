@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Alert } from "react-native";
+import { View, StyleSheet, Alert, ScrollView } from "react-native";
 import { useTodoStore } from "../../application/todo-plan-store";
 import { TODO_CATEGORIES, TodoCategory, TodoItem } from "../../domain";
 import { colors } from "@shared/colors";
@@ -85,28 +85,30 @@ export default function TodoScreen() {
 
   return (
     <View style={styles.container}>
-      <Text
-        variant="header"
-        style={{ textAlign: "center", marginBottom: spacing.md }}
-      >
-        Todo List
-      </Text>
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        <Text
+          variant="header"
+          style={{ textAlign: "center", marginBottom: spacing.md }}
+        >
+          Todo List
+        </Text>
 
-      <View style={styles.categories}>
-        {TODO_CATEGORIES.map((category) => (
-          <CategorySection
-            key={category.id}
-            category={category.id}
-            todos={todos}
-            onAddPress={handleCategoryAddPress}
-            onToggle={handleToggleTodo}
-            onEdit={handleEditTodo}
-            onDelete={handleRemoveTodo}
-            isToggling={isToggling}
-            isDeleting={isDeleting}
-          />
-        ))}
-      </View>
+        <View style={styles.categories}>
+          {TODO_CATEGORIES.map((category) => (
+            <CategorySection
+              key={category.id}
+              category={category.id}
+              todos={todos}
+              onAddPress={handleCategoryAddPress}
+              onToggle={handleToggleTodo}
+              onEdit={handleEditTodo}
+              onDelete={handleRemoveTodo}
+              isToggling={isToggling}
+              isDeleting={isDeleting}
+            />
+          ))}
+        </View>
+      </ScrollView>
 
       <AddTodoModal
         visible={isModalVisible}
@@ -122,8 +124,11 @@ export default function TodoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 0,
     backgroundColor: colors.background,
+  },
+  scrollContent: {
+    flexGrow: 1,
+    padding: 0,
   },
   categories: {
     flex: 1,
