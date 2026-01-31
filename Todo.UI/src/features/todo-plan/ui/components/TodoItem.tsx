@@ -40,23 +40,26 @@ export const TodoItem: React.FC<TodoItemProps> = ({
         ) : item.isCompleted ? (
           <Ionicons name="checkbox" size={20} color={colors.green} />
         ) : (
-          <Ionicons name="square-outline" size={20} color={colors.secondary} />
+          <Ionicons name="square-outline" size={20} color={colors.primary} />
         )}
       </View>
 
       <View style={styles.todoContent}>
-        <Text
-          style={[styles.todoTitle, item.isCompleted && styles.completedText]}
-        >
-          {item.title}
-        </Text>
+        <View style={styles.titleContainer}>
+          <Text
+            style={[styles.todoTitle, item.isCompleted && styles.completedText]}
+            numberOfLines={1}
+          >
+            {item.title}
+          </Text>
+        </View>
         <View style={styles.actions}>
           {!item.isCompleted && (
             <TouchableOpacity
               style={styles.iconButton}
               onPress={() => onEdit(item.id)}
             >
-              <Ionicons name="pencil" size={18} color={colors.secondary} />
+              <Ionicons name="pencil" size={18} color={colors.gray} />
             </TouchableOpacity>
           )}
 
@@ -69,7 +72,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
               {isDeleting ? (
                 <ActivityIndicator size="small" color={colors.red} />
               ) : (
-                <Ionicons name="trash" size={18} color={colors.secondary} />
+                <Ionicons name="trash" size={18} color={colors.gray} />
               )}
             </TouchableOpacity>
           )}
@@ -94,6 +97,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
+  titleContainer: {
+    flex: 1,
+  },
   todoTitle: {
     fontSize: typography.fontSize.md,
   },
@@ -102,7 +108,9 @@ const styles = StyleSheet.create({
     color: colors.gray,
   },
   actions: {
+    width: 40,
     flexDirection: "row",
+    justifyContent: "flex-end",
     gap: spacing.xs,
   },
   iconButton: {
